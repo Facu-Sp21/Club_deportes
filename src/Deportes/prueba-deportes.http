@@ -1,0 +1,49 @@
+### Obtener todos los deportes
+GET http://localhost:3000/deportes
+
+###
+GET  http://localhost:3000/deportes/Esgrima
+
+### Agregar un deporte
+POST http://localhost:3000/deportes
+Content-Type: application/json
+
+{
+  "nombre": "Natacion",
+  "horario": [
+    {
+      "dia": "Miercoles",
+      "hora_inico": "14:00",
+      "hora_fin": "17:00"
+    }
+  ],
+  "costo": 1500,
+  "cupo": 30
+}
+
+###
+PUT http://localhost:3000/deportes/672833dc035300eb8428a8a1
+Content-Type: application/json
+
+{
+    "horario": [
+      {
+        "dia": "Lunes",
+        "hora_inico": "10:00",
+        "hora_fin": "12:00"
+      },
+      {
+        "dia": "Jueves",
+        "hora_inico": "20:00",
+        "hora_fin": "22:00"
+      }
+    ],
+    "costo": 2500,
+    "cupo": 20
+  }
+
+### Borrar deporte por su nombre
+  
+DELETE http://localhost:3000/deportes/Natacion
+
+
