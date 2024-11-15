@@ -1,4 +1,3 @@
-import { ObjectId } from "mongodb";
 import { Horario } from "../Horarios/Clase-Horario.js";
 export class Deporte {
     constructor(
@@ -6,10 +5,8 @@ export class Deporte {
         public horario: Horario[],
         public costo: number,
         public cupo: number,
-        public _id?: ObjectId
-        )
-       
-    {}
+        public id_deporte: number
+        ){}
 }
 
 

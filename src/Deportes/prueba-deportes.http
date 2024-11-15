@@ -2,19 +2,29 @@
 GET http://localhost:3000/deportes
 
 ###
-GET  http://localhost:3000/deportes/Esgrima
+GET  http://localhost:3000/deportes/F1
 
 ### Agregar un deporte
 POST http://localhost:3000/deportes
 Content-Type: application/json
 
 {
-  "nombre": "Natacion",
+  "nombre": "softbol",
   "horario": [
     {
       "dia": "Miercoles",
-      "hora_inico": "14:00",
-      "hora_fin": "17:00"
+      "hora_inicio": "14:00:00",
+      "hora_fin": "17:00:00"
+    },
+     {
+      "dia": "Martes",
+      "hora_inicio": "14:00:00",
+      "hora_fin": "18:30:00"
+    },
+     {
+      "dia": "Domingo",
+      "hora_inicio": "10:30:00",
+      "hora_fin": "12:45:00"
     }
   ],
   "costo": 1500,
@@ -22,20 +32,21 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3000/deportes/672833dc035300eb8428a8a1
+PUT http://localhost:3000/deportes/13
 Content-Type: application/json
 
 {
+    "nombre":"F1",
     "horario": [
       {
         "dia": "Lunes",
-        "hora_inico": "10:00",
-        "hora_fin": "12:00"
+        "hora_inicio": "10:00:00",
+        "hora_fin": "12:00:00"
       },
       {
         "dia": "Jueves",
-        "hora_inico": "20:00",
-        "hora_fin": "22:00"
+        "hora_inicio": "20:00:00",
+        "hora_fin": "22:00:00"
       }
     ],
     "costo": 2500,
@@ -44,6 +55,6 @@ Content-Type: application/json
 
 ### Borrar deporte por su nombre
   
-DELETE http://localhost:3000/deportes/Natacion
+DELETE http://localhost:3000/deportes/softbol
 
 

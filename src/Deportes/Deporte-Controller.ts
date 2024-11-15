@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { Deporte } from './Clase-Deporte.js';
 import { RepositoryDeporte } from "./Repository-Deporte.js";
 
 const BDdeportes = new RepositoryDeporte();
@@ -12,11 +11,11 @@ export function sanitizeDeporte (req: Request , res: Response , next: NextFuncti
         costo: req.body.costo,
         cupo: req.body.cupo
     }
-    Object.keys(req.body.sanitizeDeporte).forEach((key) => {
+     Object.keys(req.body.sanitizeDeporte).forEach((key) => {
         if (req.body.sanitizeDeporte[key] === undefined) {
           delete req.body.sanitizeDeporte[key]
         }
-      })
+      }) 
       next()
 }
 
@@ -33,27 +32,25 @@ export async function findOne(req:Request, res:Response){
 }
 
 export async function add(req:Request, res:Response){
-    const nuevo = req.body.sanitizeDeporte;
-    const nuevoDeporte = new Deporte(nuevo.nombre, nuevo.horario, nuevo.costo, nuevo.cupo);
-    res.json(await BDdeportes.add(nuevoDeporte));
+    console.log(req.body.sanitizeDeporte);
+    res.json(await BDdeportes.add(req.body.sanitizeDeporte));
 }
 
 export async function update(req:Request, res:Response){
-    req.body.sanitizeDeporte._id = req.params.id;
+     req.body.sanitizeDeporte.id_deporte = Number(req.params.id);//Agrega el id al sanitizeDeporte
 
-    if(await BDdeportes.update(req.body.sanitizeDeporte) === undefined){
+
+    const deporteActualizado = await BDdeportes.update(req.body.sanitizeDeporte) // Actualiza el deporte
+
+    if( deporteActualizado === undefined){
         res.json({ message: 'Deporte no encontrado' });
-        
-        console.log(req.body.sanitizeDeporte);
     }else{ 
         res.json({ message: 'Deporte actualizado con exito' });
-
+ 
         
 }
-}
+}  
 
-
-   
 export async function remove (req:Request, res:Response){
     const eliminado = await BDdeportes.delete({nombre: req.params.nombre});
     if (eliminado === undefined) {
