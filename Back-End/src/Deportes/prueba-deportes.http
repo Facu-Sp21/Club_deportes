@@ -1,0 +1,52 @@
+### Obtener todos los deportes
+GET http://localhost:3000/deportes
+
+###
+GET  http://localhost:3000/deportes/Softbol
+
+### Agregar un deporte
+POST http://localhost:3000/deportes
+Content-Type: application/json
+
+{
+  "nombre": "Hockey",
+  "horarios": [
+    {
+      "dia": "Viernes",
+      "hora_inicio": "15:00:00",
+      "hora_fin": "17:00:00"
+    },
+    {
+      "dia": "Sabado",
+      "hora_inicio": "16:00:00",
+      "hora_fin": "18:30:00"
+    }
+  ],
+  "costo":25000,
+  "cupo": 30
+}
+
+###
+PUT http://localhost:3000/deportes/13
+Content-Type: application/json
+
+{
+    "nombre":"Natacion",
+    "horarios": [
+    {
+      "dia": "Martes",
+      "hora_inicio": "18:00:00",
+      "hora_fin": "20:00:00"
+    }
+  ],
+
+    "costo": 3,
+    "cupo": 10
+  }
+
+### Borrar deporte por su nombre
+  
+DELETE http://localhost:3000/deportes/2
+
+
+

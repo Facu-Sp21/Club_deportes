@@ -6,15 +6,17 @@
   "main": "app.js",
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
-    "start:dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/app.js\""
+    "start:dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./Back-End/dist/app.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mikro-orm/core": "6.4.0",
+    "@mikro-orm/mysql": "6.4.0",
+    "@mikro-orm/sql-highlighter": "1.0.1",
     "express": "4.18.2",
-    "mongodb": "6.1.0",
-    "mysql2": "3.11.4"
+    "reflect-metadata": "0.2.2"
   },
   "devDependencies": {
     "@types/express": "4.17.17",
