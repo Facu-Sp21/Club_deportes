@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: percona/percona-server
+    container_name: mysql_compartido
+    environment:
+      MYSQL_ROOT_PASSWORD: "dsw"
+      MYSQL_USER: "dsw"
+      MYSQL_PASSWORD: "dsw"
+      MYSQL_DATABASE: "club_deportes"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./MySql:/var/lib/mysql
+    restart: unless-stopped

@@ -43,4 +43,3 @@ MySql/*.sock
 MySql/ib*
 MySql/auto.cnf
 MySql/binlog.index
-
